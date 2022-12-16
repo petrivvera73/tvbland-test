@@ -4,9 +4,11 @@ import './index.css';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material';
 import App from './App';
 import { API_URL } from './const';
 import { store } from './store/store';
+import { theme } from './styles/theme';
 
 axios.defaults.baseURL = API_URL;
 
@@ -16,9 +18,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={`${process.env.PUBLIC_URL}/`}>
-        <App />
-      </BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter basename={`${process.env.PUBLIC_URL}/`}>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

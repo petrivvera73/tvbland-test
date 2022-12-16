@@ -1,12 +1,13 @@
 import { Route, Routes, Navigate } from 'react-router-dom';
+import { ROUTES } from './const';
 import { Shows } from './pages/Shows';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Shows />} />
-      <Route path="/:id" element={<div>movie id</div>} />
-      <Route path="*" element={<Navigate to="/" replace />} />
+      <Route path={ROUTES.shows} element={<Shows />} />
+      <Route path={`${ROUTES.shows}/:id`} element={<div>movie id</div>} />
+      <Route path="*" element={<Navigate to={ROUTES.shows} replace />} />
     </Routes>
   );
 }
