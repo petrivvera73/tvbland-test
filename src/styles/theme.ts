@@ -16,11 +16,10 @@ export const theme = {
       fontSize: 16,
     },
     h1: {
-      textTransform: 'uppercase',
-      fontSize: '32px',
-      fontWeight: 700,
+      fontSize: '22px',
+      fontWeight: 400,
       letterSpacing: '0.03',
-      lineHeight: '84px',
+      lineHeight: '1.33',
       [initialTheme.breakpoints.up('md')]: {
         fontSize: '56px',
       },
@@ -73,7 +72,7 @@ export const theme = {
     },
     subtitle1: {
       fontSize: '14px',
-      fontWeight: 400,
+      fontWeight: 700,
       lineHeight: '1.18',
     },
     subtitle2: {
