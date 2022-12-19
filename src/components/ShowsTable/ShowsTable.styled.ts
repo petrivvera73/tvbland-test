@@ -60,6 +60,7 @@ export const ItemCard = styled(Box)(({ theme }) => ({
   gap: theme.spacing(1),
   overflow: 'hidden',
   borderRadius: 0,
+  cursor: 'pointer',
 }));
 
 export const ImageBox = styled(Box)(({ theme }) => ({
