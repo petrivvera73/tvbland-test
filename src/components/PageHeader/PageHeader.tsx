@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { theme } from '../../styles/theme';
 import { Logo } from '../Logo/Logo';
-import { HeaderBlock, HeaderContainer, HeaderText } from './PageHeader.styled';
+import {
+  HeaderBlock,
+  HeaderContainer,
+  HeaderText,
+  MinHeaderBlock,
+} from './PageHeader.styled';
 
 export function PageHeader() {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -18,24 +23,33 @@ export function PageHeader() {
     };
   }, []);
 
-  const fullHeight = Number.parseInt(theme.spacing(10), 10);
+  const fullHeight = Number.parseInt(theme.spacing(10), 10) + 30;
   const minimizedHeight = Number.parseInt(theme.spacing(7), 10);
 
   return (
-    <HeaderBlock
-      height={
-        scrollPosition > fullHeight
-          ? minimizedHeight
-          : fullHeight + minimizedHeight - scrollPosition
-      }
-    >
-      <HeaderContainer>
-        <Logo />
-        <HeaderText>
-          TV Shows and web series database. Create your personal schedules.
-          Episodes guide, cast, crew and character information.
-        </HeaderText>
-      </HeaderContainer>
-    </HeaderBlock>
+    <>
+      <MinHeaderBlock>
+        <HeaderContainer>
+          <Logo />
+        </HeaderContainer>
+      </MinHeaderBlock>
+      <HeaderBlock
+        height={
+          scrollPosition > fullHeight
+            ? minimizedHeight
+            : fullHeight + minimizedHeight - scrollPosition
+        }
+      >
+        <HeaderContainer>
+          <HeaderText>
+            TV Show and web series database.{' '}
+            <span>
+              Create personalized schedules. Episodes guide, cast, crew and
+              character information.
+            </span>
+          </HeaderText>
+        </HeaderContainer>
+      </HeaderBlock>
+    </>
   );
 }

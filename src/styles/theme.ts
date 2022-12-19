@@ -10,10 +10,10 @@ const initialTheme = createTheme({
 export const theme = {
   ...initialTheme,
   typography: {
+    ...initialTheme.typography,
     allVariants: {
-      fontFamily: ['Rubik', 'sans-serif'].join(','),
+      fontFamily: ['Tahoma', 'sans-serif'].join(','),
       fontSize: 16,
-      // color: 'inherit',
     },
     h1: {
       textTransform: 'uppercase',
@@ -26,7 +26,7 @@ export const theme = {
       },
     },
     h2: {
-      fontSize: '18px',
+      fontSize: '22px',
       fontWeight: 700,
       lineHeight: '1.55',
       [initialTheme.breakpoints.up('md')]: {
@@ -34,7 +34,7 @@ export const theme = {
       },
     },
     h3: {
-      fontSize: '18px',
+      fontSize: '22px',
       fontWeight: 400,
       lineHeight: '1.55',
       [initialTheme.breakpoints.up('md')]: {
@@ -55,30 +55,31 @@ export const theme = {
       lineHeight: '25px',
     },
     body1: {
-      fontSize: '18px',
+      fontSize: '22px',
       fontWeight: 400,
-      lineHeight: '1.55',
+      lineHeight: '1.18',
       [initialTheme.breakpoints.up('md')]: {
-        fontSize: '32px',
+        fontSize: '28px',
       },
     },
     body2: {
-      fontSize: '16px',
+      fontSize: '14px',
       fontWeight: 400,
-      lineHeight: '25px',
+      lineHeight: '1.18',
       [initialTheme.breakpoints.up('md')]: {
-        fontSize: '24px',
+        fontSize: '16px',
+        fontWeight: 600,
       },
     },
     subtitle1: {
       fontSize: '14px',
       fontWeight: 400,
-      lineHeight: '22px',
+      lineHeight: '1.18',
     },
     subtitle2: {
       fontSize: '12px',
       fontWeight: 400,
-      lineHeight: '19px',
+      lineHeight: '1.18',
     },
   },
 };

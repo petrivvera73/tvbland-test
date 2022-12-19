@@ -1,32 +1,52 @@
-import { styled, Box, Container, Typography } from '@mui/material';
+import { styled, Box, Typography } from '@mui/material';
 
 export const TableBlock = styled(Box)(({ theme }) => ({
+  position: 'relative',
   width: '100%',
   height: '100%',
-  backgroundColor: theme.palette.common.white,
-  overflow: 'scroll',
-  paddingTop: theme.spacing(5),
-}));
-
-export const TableContainer = styled(Container)(({ theme }) => ({
-  marginTop: theme.spacing(11),
-  paddingLeft: theme.spacing(2),
-  paddingRight: theme.spacing(2),
-  maxWidth: theme.breakpoints.values.xl,
+  backgroundColor: 'transparent',
+  // overflow: 'scroll',
+  paddingTop: theme.spacing(4),
+  [theme.breakpoints.up('sm')]: {
+    marginTop: theme.spacing(6),
+    '&::before': {
+      content: '" "',
+      position: 'absolute',
+      zIndex: -1,
+      backgroundColor: theme.palette.grey[200],
+      width: '100%',
+      height: theme.spacing(12),
+      top: theme.spacing(9),
+      transform: `translateY(-100%)`,
+    },
+  },
   [theme.breakpoints.up('md')]: {
-    paddingLeft: theme.spacing(8),
-    paddingRight: theme.spacing(8),
+    marginTop: theme.spacing(6),
+    '&::before': {
+      top: theme.spacing(10),
+    },
   },
 }));
 
+export const TableCaption = styled(Typography)(({ theme }) => ({
+  ...theme.typography.h3,
+}));
+
 export const TableGrid = styled(Box)(({ theme }) => ({
+  marginTop: theme.spacing(3),
+  backgroundColor: 'transparent',
   display: 'grid',
   gridTemplateColumns: '1fr 1fr',
   justifyContent: 'center',
   alignItems: 'start',
-  gap: theme.spacing(1),
-  [theme.breakpoints.up('md')]: {
-    gap: theme.spacing(2),
+  gap: `${theme.spacing(3)} ${theme.spacing(1)}`,
+  [theme.breakpoints.up('sm')]: {
+    gap: theme.spacing(4),
+    gridTemplateColumns: `repeat(4, 1fr)`,
+  },
+  [theme.breakpoints.up('lg')]: {
+    gap: '3vw',
+    gridTemplateColumns: `repeat(6, 1fr)`,
   },
 }));
 
@@ -37,15 +57,9 @@ export const ItemCard = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'start',
   alignItems: 'start',
-  gap: theme.spacing(0),
-  //   width: `calc(${theme.spacing(6)}*3)`,
-  //   height: `calc(${theme.spacing(6)}*4)`,
+  gap: theme.spacing(2),
   overflow: 'hidden',
   borderRadius: 0,
-  [theme.breakpoints.up('md')]: {
-    width: `calc(${theme.spacing(6)}*3)`,
-    //   height: `calc(${theme.spacing(6)}*4)`,
-  },
 }));
 
 export const ImageBox = styled(Box)(({ theme }) => ({
@@ -66,4 +80,11 @@ export const ImageBox = styled(Box)(({ theme }) => ({
 
 export const ItemCaption = styled(Typography)(({ theme }) => ({
   ...theme.typography.body2,
+}));
+
+export const VanishingContainer = styled(Box)(({ theme }) => ({
+  display: 'none',
+  [theme.breakpoints.up('sm')]: {
+    display: 'auto',
+  },
 }));

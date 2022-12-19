@@ -1,3 +1,4 @@
+import { Loader } from '../components/Loader/Loader';
 import { PageContaner } from '../components/PageContainer/PageContainer.styled';
 import { PageHeader } from '../components/PageHeader/PageHeader';
 import { ShowsTable } from '../components/ShowsTable/ShowsTable';
@@ -7,6 +8,7 @@ export function Shows() {
     <PageContaner>
       <PageHeader />
       <ShowsTable />
+      <Loader />
     </PageContaner>
   );
 }

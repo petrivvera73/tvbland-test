@@ -8,11 +8,14 @@ import { getShows } from '../../store/shows/showsThunk';
 import {
   ItemCaption,
   ItemCard,
-  TableContainer,
   TableBlock,
   TableGrid,
   ImageBox,
+  TableCaption,
 } from './ShowsTable.styled';
+import fallbackPoster from '../../images/fallbackPoster.png';
+import { RatingStarsTiny } from '../RatingStars/RatingStars';
+import { ContentContainer } from '../ContentContainer/ContentContainer.styled';
 
 export function ShowsTable() {
   const dispatch = useAppDispatch();
@@ -31,15 +34,16 @@ export function ShowsTable() {
   ): void => {
     const showId = (event.currentTarget as HTMLElement).id;
     if (showId) {
-      navigate(`${ROUTES.shows}/:${showId}`);
+      navigate(`${ROUTES.shows}/${showId}`);
     }
   };
 
   return (
     <TableBlock>
-      <TableContainer>
+      <ContentContainer>
+        <TableCaption>Last Added Shows</TableCaption>
         <TableGrid>
-          {shows.length &&
+          {shows.length > 0 &&
             shows.map(({ id, name, rating, image }) => (
               <ItemCard
                 key={id}
@@ -49,13 +53,14 @@ export function ShowsTable() {
                 role="presentation"
               >
                 <ImageBox>
-                  <img src={image?.medium || '/'} alt={name} />
+                  <img src={image?.medium || fallbackPoster} alt={name} />
                 </ImageBox>
-                <ItemCaption>{`${rating.average} ${name}`}</ItemCaption>
+                <RatingStarsTiny value={rating.average} />
+                <ItemCaption>{name}</ItemCaption>
               </ItemCard>
             ))}
         </TableGrid>
-      </TableContainer>
+      </ContentContainer>
     </TableBlock>
   );
 }
