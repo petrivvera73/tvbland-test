@@ -11,17 +11,19 @@ import {
   DetailsSummary,
 } from './DetailsHeader.styled';
 
+interface IDetailsHeaderProps {
+  name: string | undefined;
+  poster: string | undefined;
+  rating: number | null | undefined;
+  summary: string | ReactNode | undefined;
+}
+
 export function DetailsHeader({
   name = '',
   poster = fallbackPoster,
   rating = null,
   summary = '',
-}: {
-  name: string | undefined;
-  poster: string | undefined;
-  rating: number | null | undefined;
-  summary: string | ReactNode | undefined;
-}) {
+}: IDetailsHeaderProps) {
   return (
     <DetailsHeaderBlock>
       <DetailsHeaderContainer>

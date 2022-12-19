@@ -7,17 +7,19 @@ import {
   InfoWrapper,
 } from './ShowInfo.styled';
 
+interface IShowInfoProps {
+  network: string | undefined;
+  schedule: string[] | undefined;
+  status: string | undefined;
+  genres: string[] | undefined;
+}
+
 export function ShowInfo({
   network = '',
   schedule = [],
   status = '',
   genres = [],
-}: {
-  network: string | undefined;
-  schedule: string[] | undefined;
-  status: string | undefined;
-  genres: string[] | undefined;
-}) {
+}: IShowInfoProps) {
   return (
     <InfoWrapper>
       <InfoTitle>Show Info</InfoTitle>
