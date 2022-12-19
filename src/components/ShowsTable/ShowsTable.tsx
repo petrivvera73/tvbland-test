@@ -53,7 +53,11 @@ export function ShowsTable() {
                 role="presentation"
               >
                 <ImageBox>
-                  <img src={image?.medium || fallbackPoster} alt={name} />
+                  <img
+                    src={image?.medium || fallbackPoster}
+                    alt={name}
+                    loading="lazy"
+                  />
                 </ImageBox>
                 <RatingStarsTiny value={rating.average} />
                 <ItemCaption>{name}</ItemCaption>

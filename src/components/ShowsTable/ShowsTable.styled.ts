@@ -5,8 +5,8 @@ export const TableBlock = styled(Box)(({ theme }) => ({
   width: '100%',
   height: '100%',
   backgroundColor: 'transparent',
-  // overflow: 'scroll',
   paddingTop: theme.spacing(4),
+  paddingBottom: theme.spacing(5),
   [theme.breakpoints.up('sm')]: {
     marginTop: theme.spacing(6),
     '&::before': {
