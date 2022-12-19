@@ -57,7 +57,7 @@ export const ItemCard = styled(Box)(({ theme }) => ({
   flexDirection: 'column',
   justifyContent: 'start',
   alignItems: 'start',
-  gap: theme.spacing(2),
+  gap: theme.spacing(1),
   overflow: 'hidden',
   borderRadius: 0,
 }));
