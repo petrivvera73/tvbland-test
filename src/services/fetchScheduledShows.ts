@@ -6,6 +6,9 @@ export async function fetchScheduledShows(date: Date = new Date()) {
   const todayString = timeToString(date);
   const { data } = await axios.get(`/schedule?date=${todayString}`);
   const remappedData = data.map((item: { show: IShow }) => item.show);
+  remappedData.sort((a: IShow, b: IShow) => {
+    return Date.parse(b.premiered) - Date.parse(a.premiered);
+  });
   const dataWithNoClones = remappedData.filter(
     (show: IShow, index: number, array: IShow[]) => {
       return array.findIndex((e) => e.id === show.id) === index;

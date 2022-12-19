@@ -9,6 +9,7 @@ export interface IShow {
   summary: string;
   genres: string[];
   status: string;
+  premiered: string;
   schedule: {
     time: string;
     days: string[];
